@@ -33,16 +33,16 @@ test('login to app using wrong credentials with data driven test', async({ login
 
 //DD_2. without fixture, parallel mode - read csv directly and loop the test method row wise
 
-let testData = CsvHelper.readCsv('src/data/loginData.csv')
+let testData = CsvHelper.readCsv('src/data/logindata.csv')
 for(let row of testData){
-    test.skip(`invalid login test directly from csv data driven - ${row.username}`, async({ loginPage }) => {
+    test(`invalid login test directly from csv data driven - ${row.username}`, async({ loginPage }) => {
         await loginPage.doLogin(row.username, row.password)
         expect(await loginPage.isInvalidLoginErrorDisplayed()).toBeTruthy()
     })
 }
 
 //DD - reading from json
-let loginJsonData = JsonHelper.readJson('src/data/loginData.json')
+let loginJsonData = JsonHelper.readJson('src/data/logindata.json')
 for(let row of loginJsonData){
     test.only(`invalid login test directly from json data driven - ${row.username}`, async({ loginPage }) => {
         await loginPage.doLogin(row.username, row.password)
