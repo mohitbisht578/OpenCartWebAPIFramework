@@ -1,5 +1,5 @@
 import {test, expect} from '@playwright/test'
-import { LoginPage } from '../src/pages/loginpage'
+import { LoginPage } from '../src/pages/LoginPage'
 import { HomePage } from '../src/pages/HomePage'
 
 let loginPage: LoginPage
