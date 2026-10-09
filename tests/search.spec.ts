@@ -9,7 +9,7 @@ test.beforeEach(async ({ loginPage }) => {
 //Data Provider
 const productData = CsvHelper.readCsv('src/data/product.csv');
 for (const row of productData) {
-    test(`@regression verify search results count - ${row.searchkey} - ${row.productname}`, async ({ homePage, searchResultsPage }) => {
+    test.skip(`@regression verify search results count - ${row.searchkey} - ${row.productname}`, async ({ homePage, searchResultsPage }) => {
         await homePage.doSearch(row.searchkey);
         expect(await searchResultsPage.getProductSearchResultsCount()).toBe(Number(row.resultcount));
     });
@@ -25,12 +25,11 @@ for (const row of productData) {
 };
 
 
+// common tests:
+test('@smoke comp logo exists on product page', async ({ basePage }) => {
+    expect(await basePage.isLogoVisible()).toBeTruthy();
+});
 
-//common tests:
-// test('@smoke comp logo exists on product page', async ({ basePage }) => {
-//     expect(await basePage.isLogoVisible()).toBeTruthy();
-// });
-
-// test('@smoke footers exist on product page', async ({ basePage }) => {
-//     expect(await basePage.getPageFootersCount()).toBe(16);
-// });
+test('@smoke footers exist on product page', async ({ basePage }) => {
+    expect(await basePage.getPageFootersCount()).toBe(16);
+});

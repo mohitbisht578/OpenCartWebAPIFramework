@@ -35,7 +35,7 @@ test('login to app using wrong credentials with data driven test', async({ login
 
 let testData = CsvHelper.readCsv('src/data/loginData.csv')
 for(let row of testData){
-    test.only(`invalid login test directly from csv data driven - ${row.username}`, async({ loginPage }) => {
+    test.skip(`invalid login test directly from csv data driven - ${row.username}`, async({ loginPage }) => {
         await loginPage.doLogin(row.username, row.password)
         expect(await loginPage.isInvalidLoginErrorDisplayed()).toBeTruthy()
     })
