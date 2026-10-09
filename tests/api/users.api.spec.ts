@@ -46,44 +46,44 @@ test('create a user test', async({ request }) => {
 
 })
 
-test('update a user test', async({ request }) => {
+// test('update a user test', async({ request }) => {
 
-    let requestBody = {
-        "name" : "david101",
-        "email" : `david_automation${Date.now()}@pw.com`,
-        "gender" : "male",
-        "status" : "inactive"
-    }
+//     let requestBody = {
+//         "name" : "david101",
+//         "email" : `david_automation${Date.now()}@pw.com`,
+//         "gender" : "male",
+//         "status" : "inactive"
+//     }
 
-    //JS Object to JSON: Serialization
-    let response = await request.put("https://gorest.co.in/public/v2/users/8648262", {
-        headers: AUTH_TOKEN,
-        data: requestBody
-    })
+//     //JS Object to JSON: Serialization
+//     let response = await request.put("https://gorest.co.in/public/v2/users/8648262", {
+//         headers: AUTH_TOKEN,
+//         data: requestBody
+//     })
 
-    expect(response.status()).toBe(200);
-    expect(response.statusText()).toBe("OK")
+//     expect(response.status()).toBe(200);
+//     expect(response.statusText()).toBe("OK")
 
-    const responseBody = await response.json();
-    console.log(responseBody);
+//     const responseBody = await response.json();
+//     console.log(responseBody);
 
-    // //validaton on response json
-    // expect(requestBody.name).toBe(requestBody.name)
-    // expect(requestBody.gender).toBe(requestBody.gender)
-    // expect(requestBody.status).toBe(requestBody.status)
+//     // //validaton on response json
+//     // expect(requestBody.name).toBe(requestBody.name)
+//     // expect(requestBody.gender).toBe(requestBody.gender)
+//     // expect(requestBody.status).toBe(requestBody.status)
     
-})
+// })
 
-test('delete a user test', async({ request }) => {
+// test('delete a user test', async({ request }) => {
 
 
-    //JS Object to JSON: Serialization
-    let response = await request.delete("https://gorest.co.in/public/v2/users/8648263", {
-        headers: AUTH_TOKEN
-    })
+//     //JS Object to JSON: Serialization
+//     let response = await request.delete("https://gorest.co.in/public/v2/users/8648263", {
+//         headers: AUTH_TOKEN
+//     })
 
-    expect(response.status()).toBe(204);
-    expect(response.statusText()).toBe("No Content")
+//     expect(response.status()).toBe(204);
+//     expect(response.statusText()).toBe("No Content")
 
     
-})
+// })

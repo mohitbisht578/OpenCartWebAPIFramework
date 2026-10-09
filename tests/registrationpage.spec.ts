@@ -10,12 +10,17 @@ test.beforeEach(async({ loginPage}) => {
 let registrationData = CsvHelper.readCsv("src/data/registrationdata.csv")
 for(let row of registrationData){
     test(`test all the registration data ${row.firstname}`, async({ registrationPage }) => {
+
+        const uniqueEmail = `tomjerry${Date.now()}@opencart.com`;
+
         expect(await registrationPage.isRegisterAccountHeaderExist()).toBeTruthy()
-        let sucessMessage = await registrationPage.doRegister(row.firstname,
+        let sucessMessage = await registrationPage.doRegister(
+                    row.firstname,
                     row.lastname,
-                    row.email,
+                    uniqueEmail,
                     row.telephone,
                     row.password)
+        console.log(`Registered email: ${uniqueEmail}`);
         console.log(`success messsage to be: ${sucessMessage}`);
         expect(sucessMessage).toBe('Your Account Has Been Created!')
     })

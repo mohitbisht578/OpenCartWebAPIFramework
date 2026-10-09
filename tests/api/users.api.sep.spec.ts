@@ -1,6 +1,6 @@
 
 import {test, expect} from '../../src/fixtures/apifixture'
-import { ApiHelper } from '../../src/utils/APIHelper'
+// import { ApiHelper } from '../../src/utils/APIHelper'
 
 const TOKEN = process.env.API_TOKEN
 let AUTH_HEADER = {Authorization: `Bearer ${TOKEN}`}
