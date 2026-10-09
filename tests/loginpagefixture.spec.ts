@@ -44,7 +44,7 @@ for(let row of testData){
 //DD - reading from json
 let loginJsonData = JsonHelper.readJson('src/data/logindata.json')
 for(let row of loginJsonData){
-    test.only(`invalid login test directly from json data driven - ${row.username}`, async({ loginPage }) => {
+    test(`invalid login test directly from json data driven - ${row.username}`, async({ loginPage }) => {
         await loginPage.doLogin(row.username, row.password)
         expect(await loginPage.isInvalidLoginErrorDisplayed()).toBeTruthy()
     })
