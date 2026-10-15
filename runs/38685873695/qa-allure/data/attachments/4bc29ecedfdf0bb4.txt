@@ -1,0 +1,7 @@
+{
+  id: 8667285,
+  name: 'david',
+  email: 'david_automation1792041493248@pw.com',
+  gender: 'male',
+  status: 'active'
+}
