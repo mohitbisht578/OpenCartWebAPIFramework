@@ -6,17 +6,17 @@ test.beforeEach(async ({ loginPage }) => {
     await loginPage.goToLoginPage()
 })
 
-test('login page title test', async({ loginPage }) => {
+test('login page title test @smoke', async({ loginPage }) => {
     const pageTitle = await loginPage.getLoginPageTitle()
     console.log('login page title', pageTitle);
     expect(pageTitle).toBe('Account Login')
 })
 
-test('forgot pwd link exist test', async({ loginPage }) => {
+test('forgot pwd link exist test @regression', async({ loginPage }) => {
     expect(await loginPage.isForgotPwdLinkExist()).toBeTruthy()
 })
 
-test('user is able to login to app test', async({ loginPage, homePage }) => {
+test('user is able to login to app test @smoke', async({ loginPage, homePage }) => {
     await loginPage.doLogin(process.env.USERNAME!, process.env.PASSWORD!)
     expect.soft(await homePage.isLogoutLinkExist()).toBeTruthy()
     expect.soft(await homePage.getHomePageTitle()).toBe('My Account')
@@ -49,3 +49,20 @@ for(let row of loginJsonData){
         expect(await loginPage.isInvalidLoginErrorDisplayed()).toBeTruthy()
     })
 }
+
+//common features test:
+test('@smoke App logo exists on Login Page', async ({ basePage }) => {
+    expect(await basePage.isLogoVisible()).toBeTruthy();
+});
+
+test('@smoke Search Box exists on Login Page', async ({ basePage }) => {
+    expect(await basePage.isSearchBoxVisible()).toBeTruthy();
+});
+
+test('@smoke Cart exists on Login Page', async ({ basePage }) => {
+    expect(await basePage.isCartButtonVisible()).toBeTruthy();
+});
+
+test('@smoke Footers exists on Login Page', async ({ basePage }) => {
+    expect(await basePage.getPageFootersCount()).toBe(16);
+});

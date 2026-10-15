@@ -1,6 +1,5 @@
 import {test, expect} from '../../src/fixtures/apifixture'
 import { Ajv } from 'ajv'
-import { ApiHelper } from '../../src/utils/APIHelper'
 
 const TOKEN = process.env.API_TOKEN
 let AUTH_HEADER = {
@@ -68,7 +67,7 @@ let userArraySchema = {
     ]
   }
 }
-test('GET a user', async({ apiHelper }) => {
+test('GET a user @smoke', async({ apiHelper }) => {
 
     let userData = {
         name: 'schema test',
@@ -96,7 +95,7 @@ test('GET a user', async({ apiHelper }) => {
 
 })
 
-test('GET all users', async({ apiHelper }) => {
+test('GET all users @smoke', async({ apiHelper }) => {
 
 
     //get all user

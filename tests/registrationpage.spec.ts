@@ -9,7 +9,7 @@ test.beforeEach(async({ loginPage}) => {
 
 let registrationData = CsvHelper.readCsv("src/data/registrationdata.csv")
 for(let row of registrationData){
-    test(`test all the registration data ${row.firstname}`, async({ registrationPage }) => {
+    test(`test all the registration data ${row.firstname} @regression`, async({ registrationPage }) => {
 
         const uniqueEmail = `tomjerry${Date.now()}@opencart.com`;
 
